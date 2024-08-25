@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:testing_bloc_course/cubit_examples/cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:testing_bloc_course/bloc_examples/bloc_first_example.dart';
 
 void main() {
   runApp(const MainApp());
@@ -16,7 +17,11 @@ class MainApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
-      home: const CubitExample(),
+      home: BlocProvider(
+        create: (_) => PersonsBloc(),
+        child: const BlocFirstExample(),
+      ),
+      // home: const BlocFirstExample(),
     );
   }
 }
