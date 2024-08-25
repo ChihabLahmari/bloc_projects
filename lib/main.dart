@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testing_bloc_course/cubit_examples/cubit.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +10,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      theme: ThemeData(brightness: Brightness.light),
+      darkTheme: ThemeData(brightness: Brightness.light),
+      themeMode: ThemeMode.light,
+      debugShowCheckedModeBanner: false,
+      debugShowMaterialGrid: false,
+      home: const CubitExample(),
     );
   }
 }
