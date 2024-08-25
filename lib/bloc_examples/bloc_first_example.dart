@@ -5,56 +5,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:testing_bloc_course/bloc_examples/bloc/bloc_action.dart';
+import 'package:testing_bloc_course/bloc_examples/bloc/person.dart';
+import 'package:testing_bloc_course/bloc_examples/bloc/persons_bloc.dart';
 
 extension Log on Object {
   void log() => devtools.log(toString());
-}
-
-@immutable
-abstract class LoadAction {
-  const LoadAction();
-}
-
-@immutable
-class LoadPersonAction implements LoadAction {
-  final PersonUrl url;
-  const LoadPersonAction({required this.url}) : super();
-}
-
-enum PersonUrl {
-  person1,
-  person2,
-}
-
-extension UrlString on PersonUrl {
-  String get urlString {
-    switch (this) {
-      case PersonUrl.person1:
-        return 'http://127.0.0.1:5500/api/persons1.json';
-      case PersonUrl.person2:
-        return 'http://127.0.0.1:5500/api/persons2.json';
-    }
-  }
-}
-
-@immutable
-class Person {
-  final String name;
-  final int age;
-  const Person({
-    required this.name,
-    required this.age,
-  });
-
-  factory Person.fromJson(Map<String, dynamic> map) {
-    return Person(
-      name: map['name'] as String,
-      age: map['age'] as int,
-    );
-  }
-
-  @override
-  String toString() => 'Person(name: $name, age: $age)';
 }
 
 // converting data
@@ -68,46 +24,6 @@ Future<Iterable<Person>> getPersons(String url) => HttpClient()
     .then((str) => json.decode(str) as List<dynamic>)
     //     ⬇⬇
     .then((list) => list.map((e) => Person.fromJson(e)));
-
-@immutable
-class FetchResult {
-  final Iterable<Person> persons;
-  final bool isRetrivedFromCash;
-  const FetchResult({
-    required this.persons,
-    required this.isRetrivedFromCash,
-  });
-  @override
-  String toString() => 'Fetch result isRetrivedFromCash = $isRetrivedFromCash \n persons: $persons';
-}
-
-class PersonsBloc extends Bloc<LoadAction, FetchResult?> {
-  final Map<PersonUrl, Iterable<Person>> _cashe = {};
-  PersonsBloc() : super(null) {
-    on<LoadPersonAction>(
-      (event, emit) async {
-        final url = event.url;
-        if (_cashe.containsKey(url)) {
-          // we have the value in our cashe
-          final cashePersons = _cashe[url]!;
-          final result = FetchResult(
-            persons: cashePersons,
-            isRetrivedFromCash: true,
-          );
-          emit(result);
-        } else {
-          final persons = await getPersons(url.urlString);
-          _cashe[url] = persons;
-          final result = FetchResult(
-            persons: persons,
-            isRetrivedFromCash: false,
-          );
-          emit(result);
-        }
-      },
-    );
-  }
-}
 
 // Adds safe access to list elements by returning null if the index is out of bounds
 extension Subscript<T> on Iterable<T> {
@@ -129,8 +45,9 @@ class BlocFirstExample extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   context.read<PersonsBloc>().add(
-                        const LoadPersonAction(
-                          url: PersonUrl.person1,
+                        const LoadPersonsAction(
+                          url: person1Url,
+                          loader: getPersons,
                         ),
                       );
                 },
@@ -139,8 +56,9 @@ class BlocFirstExample extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   context.read<PersonsBloc>().add(
-                        const LoadPersonAction(
-                          url: PersonUrl.person2,
+                        const LoadPersonsAction(
+                          url: person2Url,
+                          loader: getPersons,
                         ),
                       );
                 },
