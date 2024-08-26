@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart' show immutable;
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:testing_bloc_course/bloc_examples/bloc/bloc_action.dart';
-import 'package:testing_bloc_course/bloc_examples/bloc/person.dart';
+import 'package:testing_bloc_course/bloc_first_examples/bloc/bloc_action.dart';
+import 'package:testing_bloc_course/bloc_first_examples/bloc/person.dart';
 
 extension IsEqualToIgnoringOrdering<T> on Iterable<T> {
   bool isEqualToIgnoringOrdering(Iterable<T> other) =>

@@ -5,9 +5,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:testing_bloc_course/bloc_examples/bloc/bloc_action.dart';
-import 'package:testing_bloc_course/bloc_examples/bloc/person.dart';
-import 'package:testing_bloc_course/bloc_examples/bloc/persons_bloc.dart';
+import 'package:testing_bloc_course/bloc_first_examples/bloc/bloc_action.dart';
+import 'package:testing_bloc_course/bloc_first_examples/bloc/person.dart';
+import 'package:testing_bloc_course/bloc_first_examples/bloc/persons_bloc.dart';
 
 extension Log on Object {
   void log() => devtools.log(toString());

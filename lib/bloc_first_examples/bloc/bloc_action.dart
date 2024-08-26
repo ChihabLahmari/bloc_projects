@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart' show immutable;
-import 'package:testing_bloc_course/bloc_examples/bloc/person.dart';
+import 'package:testing_bloc_course/bloc_first_examples/bloc/person.dart';
 
 // enum PersonUrl {
 //   person1,
