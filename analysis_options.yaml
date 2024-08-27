@@ -1,3 +1,4 @@
 include: package:flutter_lints/flutter.yaml
 rules:
   prefer_single_quotes: true
+  require_trailing_commas: true
