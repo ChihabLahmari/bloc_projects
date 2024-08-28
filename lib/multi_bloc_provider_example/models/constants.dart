@@ -1,0 +1,15 @@
+const images = [
+  'https://picsum.photos/200/300?random=1',
+  'https://picsum.photos/200/300?random=12',
+  'https://picsum.photos/200/300?random=13',
+  'https://picsum.photos/200/300?random=14',
+  'https://picsum.photos/200/300?random=15',
+  'https://picsum.photos/200/300?random=16',
+  'https://picsum.photos/200/300?random=17',
+  'https://picsum.photos/200/300?random=18',
+  'https://picsum.photos/200/300?random=19',
+  'https://picsum.photos/200/300?random=31',
+  'https://picsum.photos/200/300?random=41',
+  'https://picsum.photos/200/300?random=51',
+  'https://picsum.photos/200/300?random=61',
+];

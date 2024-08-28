@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:testing_bloc_course/bloc_second_example/bloc_second_example.dart';
+import 'package:testing_bloc_course/multi_bloc_provider_example/multi_bloc_provider_example.dart';
 
 void main() {
   runApp(const MainApp());
@@ -16,7 +16,7 @@ class MainApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
-      home: const BlocSecondExample(),
+      home: const MultiBlocProviderExample(),
       // home: const BlocFirstExample(),
     );
   }
