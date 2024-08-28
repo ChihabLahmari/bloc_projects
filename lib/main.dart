@@ -1,7 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:testing_bloc_course/multi_bloc_provider_example/multi_bloc_provider_example.dart';
+import 'package:testing_bloc_course/firebase_auth_storage_with_bloc_example/firebase_auth_storage_with_bloc.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MainApp());
 }
 
@@ -16,8 +23,7 @@ class MainApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
-      home: const MultiBlocProviderExample(),
-      // home: const BlocFirstExample(),
+      home: const FirebaseAuthStorageWithBloc(),
     );
   }
 }

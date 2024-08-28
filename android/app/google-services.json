@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "884995333684",
+    "project_id": "bloc-auth-storage-course",
+    "storage_bucket": "bloc-auth-storage-course.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884995333684:android:252c83b3657063bc017461",
+        "android_client_info": {
+          "package_name": "com.example.testing_bloc_course"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaUpQwWmML6nxt6JP7X4rTQSvSBYS_s04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
